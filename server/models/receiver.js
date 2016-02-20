@@ -28,16 +28,8 @@ module.exports = Receiver;
 
 // var r = new Receiver();
 //
-// r.number = "+56958566800";
+// r.number = "+569xxxxxxxx";
 // r.country_code = "56";
 // r.heartbeats = [];
 // r.confirmed = true;
 // r.active = true;
-//
-// r.number = "+56996540467";
-// r.country_code = "56";
-// r.heartbeats = [];
-// r.confirmed = true;
-// r.active = true;
-//
-// r.save();
