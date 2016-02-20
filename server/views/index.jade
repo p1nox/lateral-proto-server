@@ -1,0 +1,43 @@
+extends layout.jade
+
+block extra-styles
+  link(rel="stylesheet", href="/css/home.css")
+
+block extra-scripts
+  script(src="/js/home.js")
+
+block page-content
+
+  //- .slider
+  //-   ul.slides
+  //-     li
+  //-       img(src='/img/internet.jpg')
+  //-       .caption.center-align
+  //-         h3 Tweet with no connection
+  //-         h5 Register once, and post using SMS or BLE.
+  //-     li
+  //-       img(src='/img/disasters.png')
+  //-       .caption.center-align
+  //-         h3 Share in emergencies
+  //-         h5 Natural disasters, government blackouts, etc.
+
+  .container
+    .row
+      .col.s4
+        .center.promo.promo-example
+          i.material-icons.large flash_on
+          p.promo-caption Login once
+          p.light.center
+            | After sign up with your #[a(href="http://www.twitter.com") Twitter] account, and register your phone number, you wont need to login again.
+      .col.s4
+        .center.promo.promo-example
+          i.material-icons.large mic_off
+          p.promo-caption Post in emergencies
+          p.light.center
+            | Is very important to share information in emergencies situations. Doesn't matter what ever the natural disaster or government blackout is going on, what you need is to share what is happening.
+      .col.s4
+        .center.promo.promo-example
+          i.material-icons.large phonelink_ring
+          p.promo-caption No smartphone
+          p.light.center
+              | If you don't have a smartphone, no problemo, the only thing you need is a phone able to receive SMS. Check how it works #[a(href="/auth/twitter") here].
