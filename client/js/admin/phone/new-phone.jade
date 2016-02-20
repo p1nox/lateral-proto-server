@@ -1,0 +1,36 @@
+#create
+  h5 Register your phone number
+  .row
+    form.col.s12
+      .row
+        .input-field.col.s6
+          i.material-icons.prefix phone
+          input#telephone(type='text' autofocus)
+          label(for='telephone') Telephone
+          p i.e.: +584121234567
+          button.btn.waves-effect.waves-light(type='submit', name='action')
+            | Save
+            i.material-icons.right send
+        .col.s6
+          .card-panel.teal
+            span.white-text
+              | After saving, we will send a confirmation message to your phone, don't delete it,
+              | you'll need it in the next step.
+
+#confirm.modal
+  .modal-content
+    h4 Confirm your phone number
+    .row
+      form.col.s12
+        .row
+          .input-field.col.s6
+            i.material-icons.prefix phone
+            input#secret_code(type='text')
+            label(for='secret_code') Secret Code
+            button.btn.waves-effect.waves-light(type='submit', name='action')
+              | Send
+              i.material-icons.right send
+          .col.s6
+            .card-panel.teal
+              span.white-text
+                | After confirm, you'll be able to post to Twitter using no connection thorugh our special phone numbers.

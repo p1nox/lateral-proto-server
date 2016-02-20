@@ -1,0 +1,33 @@
+#forwarders
+  h5
+    i(class="material-icons") phonelink_setup
+    | Listeners phones
+
+  .collection
+    each p in receivers
+      a.collection-item(href='#')
+        = p.number
+  p
+    | Add any of this phone number to your contact list.
+
+#phones
+  h5
+    i(class="material-icons") phonelink_ring
+    | Your phone numbers
+
+  if !phones.length
+    p You don't have phone numbers registered. Click on the blue circle to add some.
+
+  .collection
+    each p in phones
+      a.collection-item(href='#/phone/#{p.number}')
+        = p.number
+        span.badge
+          if p.confirmed
+            i(class="material-icons") verified_user
+          else
+            i(class="material-icons") error
+
+.add-number.fixed-action-btn(style='bottom: 45px; right: 24px;')
+  a.btn-floating.btn-large.red(href="#/phone/new")
+    i.material-icons add
