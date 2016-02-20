@@ -1,0 +1,67 @@
+{
+  "name": "lateral-server",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "build-styl": "stylus -u nib client/styl/*.styl -c -o client/public/css/",
+    "build-js": "browserify client/js/home.js | uglifyjs -c -m -o client/public/js/home.js --comments & browserify client/js/admin.js | uglifyjs -c -m -o  client/public/js/admin.js --comments",
+    "build-assets": "npm run build-styl & npm run build-js",
+    "postinstall": "npm run build-assets",
+    "watch-styl": "stylus -w -u nib client/styl/*.styl -o client/public/css/",
+    "watch-js": "watchify client/js/home.js -o client/public/js/home.js -v & watchify client/js/admin.js -o client/public/js/admin.js -v",
+    "watch-assets": "npm run watch-styl & npm run watch-js",
+    "watch-server": "./node_modules/.bin/nodemon -e js,jade index.js",
+    "start": "npm run watch-assets & npm run watch-server"
+  },
+  "dependencies": {
+    "backbone": "^1.2.3",
+    "bluebird": "^3.0.6",
+    "body-parser": "^1.14.1",
+    "browserify": "^12.0.1",
+    "browserify-shim": "^3.8.11",
+    "connect-mongo": "^0.8.2",
+    "cookie-parser": "^1.4.0",
+    "cors": "^2.7.1",
+    "errorhandler": "^1.4.2",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "forever": "^0.15.1",
+    "google-libphonenumber": "^1.0.7",
+    "jade": "^1.11.0",
+    "jadeify": "^4.5.0",
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
+    "materialize-css": "^0.97.3",
+    "moment": "^2.11.1",
+    "mongoose": "^4.2.8",
+    "morgan": "^1.6.1",
+    "nib": "^1.1.0",
+    "nodemon": "^1.8.1",
+    "passport": "^0.3.2",
+    "passport-twitter": "^1.0.3",
+    "promised-twit": "^0.1.0",
+    "rand-token": "^0.2.1",
+    "stylus": "^0.52.4",
+    "twilio": "^2.5.2",
+    "uglify-js": "^2.6.1",
+    "watchify": "^3.6.1"
+  },
+  "browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.min.js",
+    "materialize": "./node_modules/materialize-css/bin/materialize.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "jadeify"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": "$",
+    "materialize": "materialize"
+  },
+  "license": "private",
+  "engines": {
+    "node": "0.12.x"
+  }
+}
